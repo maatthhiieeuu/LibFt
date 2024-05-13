@@ -1,20 +1,22 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : Libft/ft_isalpha.c                       ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_isdigit                         ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/05/10   by m.boegler            ###         ###   ###########                 */
-/*   Updated: 2024/05/10   by m.boegler           ###         ###   #########                    */
+/*   Created: 2024/05/11  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/05/11  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-int ft_isalpha(int character)
+int ft_isdigit(int character)
 {
-	if(character > 64 && character < 91)
-		return (1);
-	else if(character > 96 && character < 123)
-		return (1);
-	return (0);
+	if(character >= 48 && character <= 57)
+	{
+		return 2048;
+	}
+	return 0;	
 }
+
+//Cette fonction permet de tester si un caractère est un chiffre décimal ou non. 
