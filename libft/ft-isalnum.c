@@ -1,12 +1,12 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : Libft/ft_isalpha.c                       ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_isalnum                         ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/05/10   by m.boegler            ###         ###   ###########                 */
-/*   Updated: 2024/05/10   by m.boegler           ###         ###   #########                    */
+/*   Created: 2024/05/14  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/05/14  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -21,11 +21,26 @@ int ft_isalpha(int character)
 	return (0);
 }
 
+int ft_isdigit(int character)
+{
+	if(character >= 48 && character <= 57)
+	{
+		return 2048;
+	}
+	return 0;	
+}
+
+int ft_isalnum(int character )
+{
+	if(ft_isalpha(character) || ft_isdigit(character))
+		return (8);
+	return (0);
+}
+
 /*
 
-Cette fonction permet de tester si un caractère est alphabétique ou non. Un caractère sera 
-considéré comme alphabétique s'il est de lettres minuscules ou de lettres majuscules. 
-Rappel : les fonctions de cette librairie ne traitent que les caractères purs ASCII. Les lettres 
-accentuées ne seront donc pas considérées comme des caractères alpha-numériques. 
+Cette fonction permet de tester si un caractère est alpha-numérique ou non. Un caractère sera considéré comme alpha-numérique 
+s'il est une lettre (minuscule ou majuscule) ou un chiffre. Rappel : les fonctions de cette librairie ne traitent que les 
+caractères purs ASCII. Les lettres accentuées ne seront donc pas considérées comme des caractères alpha-numériques. 
 
 */

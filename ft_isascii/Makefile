@@ -1,8 +1,8 @@
 CC = gcc
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
-EXEC = test-ft_isalnum
 CFLAGS = -Wall -Wextra -Werror
+EXEC = test-ft_isascii
 
 all : $(EXEC)
 

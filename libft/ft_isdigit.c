@@ -10,13 +10,15 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
+#include "libft.h"
+
 int ft_isdigit(int character)
 {
 	if(character >= 48 && character <= 57)
 	{
-		return 2048;
+		return (2048);
 	}
-	return 0;	
+	return (0);	
 }
 
 //Cette fonction permet de tester si un caractère est un chiffre décimal ou non. 
