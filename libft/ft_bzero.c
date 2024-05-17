@@ -10,26 +10,12 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-//#include "libft.h"
+#include "libft.h"
+#include <stddef.h>
 
-void	*ft_memset(void *pointer, int value, size_t count)
+void	ft_bzero(void *pointer, size_t n)
 {
-	unsigned char *memoryBloc = (unsigned char *)pointer;
-	unsigned char character = (unsigned char)value;
-	size_t	i = 0;
-	
-	while(i < count)
-	{
-		*memoryBloc = character;
-		memoryBloc++;
-		i += 1;
-	}
-	return (pointer);
-}
-
-void	bzero(void *pointer, size_t n)
-{
-	ft_memset(pointer, '0', n);
+	ft_memset(pointer, 0, n);
 }
 
 /*

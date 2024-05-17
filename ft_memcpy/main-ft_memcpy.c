@@ -12,17 +12,20 @@
 
 #include <stdio.h>		//Pour l'utilisation de printf.
 #include <string.h> 	//Pour l'utilisation de memcpy.
-#include <stddef.h>		//Pour l'utilisation de size_t.
 
-void	*memcpy(void *destination, const void *source, size_t size);
+void	*ft_memcpy(void *destination, const void *source, size_t size);
 
 int	main()
 {
-	char *source = "La souris verte";
-	char destination[16];
+	char *source1 = "La souris verte";
+	char *destination1[16];
+	char *source2 = "La souris verte";
+	char *destination2[16];
 	size_t size = 16;
 
-	memcpy(destination, source, size);
-	printf("\033[1;32msource : |%s|\ndestination : |%s|\033[1;0m\n", source, destination);
+	memcpy(destination1, source1, size);
+	ft_memcpy(destination2, source2, size);
+	printf("\033[1;32msource : |%s|\ndestination : |%s|\033[1;0m\n", source1, destination1);
+	printf("\033[1;34msource : |%s|\ndestination : |%s|\033[1;0m\n", source2, destination2);
 
 }

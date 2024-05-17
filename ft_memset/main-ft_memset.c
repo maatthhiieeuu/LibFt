@@ -12,7 +12,7 @@
 
 #include <stdio.h>		//Pour l'utilisation de printf
 #include <string.h>		//Pour l'utilisation de memset
-#include <stddef.h> 	//Pour l'utilisation de 
+#include <stddef.h> 	//Pour l'utilisation de size_t
 #include <stdlib.h>		//Pour l'utilisation de malloc
 
 void	*ft_memset(void *pointer, int value, size_t count);

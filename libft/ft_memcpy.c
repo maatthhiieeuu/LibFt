@@ -10,26 +10,15 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-//#include "libft.h"
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
+#include <stdio.h>		//Pour l'utilisation de printf.
 
-void	*memcpy(void *destination, const void *source, size_t size)
+
+void	*ft_memcpy(void *destination, const void *source, size_t size)
 {
 	char *dest = (char *)destination;
 	char *src = (char *)source;
 	size_t i = 0;
-
-	if(destination == NULL)
-	{
-		printf("ERREUR : Pointeur destination de la fonction memcpy NULL !");
-		return(NULL);
-	}
-	if(source == NULL)
-	{
-		printf("ERREUR : Pointeur source de la fonction memcpy NULL !");
-		return(NULL);
-	}
 
 	while(i < size)
 	{
