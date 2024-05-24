@@ -5,8 +5,8 @@
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/05/17  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/17  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/05/24  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/05/24  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -15,28 +15,33 @@
 
 void	*ft_memmove(void *destination, const void *source, size_t size)
 {
-	char temp[size];
-	char *dest = (char *)destination;
-	char *src = (char *)source;
-	size_t i = 0;
+    unsigned char		*dest = (unsigned char *)destination;
+    const unsigned char *src = (const unsigned char *)source;
+    size_t				i = 0;
 
-	if(destination == NULL || source == NULL)
-		return NULL;
+    if(!destination || !source)
+        return (NULL);
 
-	while(i < size)
-	{
-		temp[i] = src[i];
-		i += 1;
-	}
-	i = 0;
-	while(i < size)
-	{
-		dest[i] = src[i];
-		i += 1;
-	}
-	return (destination);
+    if(dest < src)
+    {
+        while(i < size)
+        {
+            dest[i] = src[i];
+            i += 1;
+        }
+    }
+    else if(dest > src)
+    {
+        i = size;
+        while(i > 0)
+        {
+            i--;
+            dest[i] = src[i];
+        }
+    }
+    return(destination);
 }
-VERIFIER SUR GPT QUE L'IMPLÉMENT TION RESPECT LA NOTION DE CHEVAUCHEMENT !!!
+
 /*
 
 Cette fonction permet de copier un bloc de mémoire spécifié par le paramètre source dans un nouvel 
@@ -53,7 +58,7 @@ Paramètres
     source : permet de définir l'adresse du bloc de mémoire à dupliquer.
     size : indique le nombre d'octets à dupliquer.
 
-Valeur de retour
+Valeur de retour:
 
 La fonction renvoie l'adresse du bloc de mémoire de destination. 
 
