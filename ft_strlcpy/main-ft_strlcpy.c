@@ -11,27 +11,39 @@
 /* ********************************************************************************************* */
 
 #include <stdio.h>
+#include <string.h>
+#include <bsd/string.h>
 
-
+size_t ft_strlcpy(char *destination, const char *source, size_t size);
 
 int main()
 {
-    char data_or[100];
-    char data_ft[100];
-    strcpy(data_or, "abcdefghijklmnopqrstuvwxyz");
-    strcpy(data_ft, "abcdefghijklmnopqrstuvwxyz");
+    char src[] = "Hello, world!";
+    char dst[10];
+
+    size_t length = ft_strlcpy(dst, src, sizeof(dst));
+
+    if (length >= sizeof(dst)) {
+        printf("\033[1;33mLa chaîne source a été tronquée. Longueur réelle de la source : |%zu|\n\033[0m", length);
+    } else {
+        printf("\033[1;32mLa chaîne a été copiée avec succès : |%s|\n\033[0m", dst);
+    }
+
+    return 0;
+   /* size_t  result_or = 0;
+    size_t  result_ft = 0;
+    char    source_or[27];
+    char    dest_or[27];
+    char    source_ft[27];
+    char    dest_ft[27];
+    strcpy(source_or, "abcdefghijklmnopqrstuvwxyz");
+    strcpy(source_ft, "abcdefghijklmnopqrstuvwxyz");
 
     // Test 1: Source avant destination
-    memmove(data_or + 5, data_or, 20);
-    ft_memmove(data_ft + 5, data_ft, 20);
-    printf("\033[1;32mmemmove_or 2ème if: (source < destination): %s\033[0m\n", data_or);
-    printf("\033[1;33mft_memmove 2ème if: (source < destination): %s\033[0m\n\n", data_ft);
-    // Reset data
-    strcpy(data_or, "abcdefghijklmnopqrstuvwxyz");
-    strcpy(data_ft, "abcdefghijklmnopqrstuvwxyz");
-    // Test 2: Destination avant source
-    memmove(data_or, data_or + 5, 20);
-    ft_memmove(data_ft, data_ft + 5, 20);
-    printf("\033[1;32mmemmove_or 1er if (destination < source):   %s\033[0m\n", data_or);
-    printf("\033[1;33mft_memmove 1er if (destination < source):   %s\033[0m\n\n", data_ft);
+    result_or = strlcpy(dest_or , source_or, 27);
+    result_ft = ft_strlcpy(dest_ft, source_ft, 27);
+
+    printf("\033[1;32mor_strlcpy: |%s| result_or = %ld\033[0m\n", dest_or, result_or);
+    printf("\033[1;33mft_strlcpy: |%s| result_ft = %ld\033[0m\n\n", dest_ft, result_ft);
+*/
 }
