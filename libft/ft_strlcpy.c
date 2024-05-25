@@ -5,11 +5,12 @@
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/05/  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/05/25  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/05/25  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
+#include "libft.h"
 #include <stddef.h>
 
 size_t  ft_strlcpy(char *destination, const char *source, size_t size)
@@ -17,7 +18,7 @@ size_t  ft_strlcpy(char *destination, const char *source, size_t size)
     size_t  i = 0;
     size_t  source_len = 0;
 
-    if(!source || size == 0)
+    if(!source)
         return(0);
 
     while(source[source_len] != '\0')
@@ -25,7 +26,7 @@ size_t  ft_strlcpy(char *destination, const char *source, size_t size)
         source_len += 1;
     }
     
-    if(!destination)
+    if(!destination || size == 0)
         return(source_len);
 
     while(i < size - 1)
