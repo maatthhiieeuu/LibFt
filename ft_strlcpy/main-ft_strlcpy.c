@@ -1,18 +1,18 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/main-ft_memmove.c                  ::::::  :::::::   :::::::::::            */
+/*   Project : libft/main-ft_strlcpy.c                  ::::::  :::::::   :::::::::::            */
 /*                                                     +:: ::+ +:: ::+   +::::::::::+            */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/05/24  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/24  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/05/  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/05/  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include <stdio.h>
 
-void	*ft_memmove(void *destination, const void *source, size_t size);
+
 
 int main()
 {
