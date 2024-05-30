@@ -13,6 +13,7 @@ char 	*ft_strchr(const char *string, int searched_char);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *destination, const char *source, size_t size);
 size_t	ft_strlen(const char *string);
+char	*ft_strrchr(const char *string, int searched_char);
 int		ft_tolower(int character);
 int		ft_toupper(int character);
 
