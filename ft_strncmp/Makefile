@@ -1,8 +1,8 @@
 CC = gcc
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
-CFLAGS = -Wall -Wextra -Werror
-EXEC = test-ft_strchr
+CFLAGS = -Wall -Wextra -Werror 
+EXEC = test-ft_strncmp
 
 all : $(EXEC)
 
@@ -18,7 +18,7 @@ clean :
 fclean : clean
 	rm -rf $(EXEC)
 
-re : fclean all 
-	./test-ft_strchr
+re : fclean all
+	./test-ft_strncmp
 
-.PHONY : clean fclean all re
+.PHONY : all clean fclean re
