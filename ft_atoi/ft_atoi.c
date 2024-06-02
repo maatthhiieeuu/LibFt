@@ -12,7 +12,25 @@
 
 int	atoi(const char *string)
 {
-	
+	if(!string)
+		return(0);
+
+	size_t			i = 0;
+	char			*str = (char *)string;
+	unsigned int	sign = 0;
+
+	while(str[i] != '\0')
+	{
+		if(str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		{
+			i += 1;
+		}
+		if(str[i] == '-' || str[i] == '+')
+		{
+			
+		}
+
+	}
 }
 
 /*
