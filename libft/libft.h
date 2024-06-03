@@ -3,6 +3,7 @@
 
 int		ft_atoi(const char *string);
 void	ft_bzero(void *pointer, size_t n);
+void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int character);
 int		ft_isalpha(int character);
 int		ft_isascii(int character);

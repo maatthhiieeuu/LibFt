@@ -1,8 +1,8 @@
 CC = gcc
+FLAGS = -g -Wall -Wextra -Werror
+EXE = test-ft_strdup
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
-FLAGS = -g -Wall -Wextra -Werror
-EXE = test-ft_calloc
 
 all : $(EXE)
 
@@ -12,13 +12,13 @@ $(EXE) : $(OBJ)
 %.o : %.c
 	$(CC) $(FLAGS) -o $@ -c $<
 
-clean :
+clean : 
 	rm -rf $(OBJ)
 
 fclean : clean
 	rm -rf $(EXE)
 
 re : fclean all
-	./test-ft_calloc
+	./test-ft_strdup
 
 .PHONY : all clean fclean re
