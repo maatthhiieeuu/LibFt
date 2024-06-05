@@ -20,7 +20,7 @@
 #define CLR_r "\033[0m"
 
 // Prototype de la fonction substr
-char *ft_substr(const char *source, size_t start, size_t length);
+char    *ft_substr(char const *s, unsigned int start, size_t len);
 
 void test_substr(const char *source, size_t start, size_t length, const char *expected) {
     char *result = ft_substr(source, start, length);

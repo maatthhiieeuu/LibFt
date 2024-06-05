@@ -1,6 +1,6 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_substr.c                        ::::::  ::::::    :::::::::              */
+/*   Project : libft/main-ft_strjoin.c                  ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
@@ -10,30 +10,44 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
+#include <stdio.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include "libft.h"
+#include <string.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	i = 0;
-	char	*ptr = NULL;
+#define CLR_Y "\033[1;33m"
+#define CLR_r "\033[0m"
 
-	ptr = (char	*)malloc((len + 1) * sizeof(char));
-	if(!ptr || !s)
-		return(NULL);
-	size_t	len_source = ft_strlen(s);
-	if(start > len_source - len)
-	{
-		ptr[i] = '\0';
-		return(ptr);
-	}
+char	*ft_strjoin(char const *s1, char const *s2);
+
+void test_strjoin(const char *s1, const char *s2, size_t i) {
 	
-	while(s[start + i] != '\0' && i < len)
-	{
-		ptr[i] = s[start + i];
-		i += 1;
-	}
-	ptr[i] = '\0';
-	return(ptr);
+    printf(CLR_Y"Test %ld for ft_strjoin(\"%s\", \"%s\"):\n"CLR_r, i,  s1, s2);
+  
+    char *result = ft_strjoin(s1, s2);
+    if (result == NULL) {
+        printf("Result: NULL\n\n");
+    } else {
+        printf("Result: \"%s\"\n\n", result);
+        free(result); // Libérer la mémoire allouée
+    }
+    
+}
+
+int main() {
+	size_t	i = 1;
+    test_strjoin("Hello, ", "world!", i);
+    i++;
+    test_strjoin("", "", i);
+    i++;
+    test_strjoin("", "world!", i);
+    i++;
+    test_strjoin("Hello, ", "", i);
+    i++;
+    test_strjoin(NULL, NULL, i);
+    i++;
+    test_strjoin("Hello, ", NULL, i);
+    i++;
+    test_strjoin(NULL, "world!", i);
+    i++;
+    return 0;
 }

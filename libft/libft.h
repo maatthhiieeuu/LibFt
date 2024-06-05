@@ -21,7 +21,7 @@ size_t	ft_strlen(const char *string);
 int		ft_strncmp(const char *first, const char *second, size_t length);
 char 	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *string, int searched_char);
-char	*ft_substr(const char *source, size_t start, size_t length);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int character);
 int		ft_toupper(int character);
 
