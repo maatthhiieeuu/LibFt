@@ -5,15 +5,37 @@
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/06/  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/06/05  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/06/05  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-char	*strdup(const char *source)
-{
+#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
+char	*ft_strdup(const char *source)
+{
+    if(!source)
+        return(NULL);
+
+    char    *ptr = NULL;
+    size_t  len_source = 0;
+    size_t  i = 0;
+
+    len_source = ft_strlen(source);
+    ptr = (char *)malloc((len_source + 1) * sizeof(char));
+    if(!ptr)
+        return(NULL);
+    while(source[i] != '\0')
+    {
+        ptr[i] = source[i];
+        i += 1;
+    }
+    ptr[len_source] = '\0';
+    return(ptr);
 }
+
 /*
 
 Entête à inclure

@@ -14,12 +14,14 @@ int		ft_memcmp(const void *pointer1, const void *pointer2, size_t size);
 void	*ft_memmove(void *destination, const void *source, size_t size);
 void	*ft_memset(void *pointer, int value, size_t count);
 char 	*ft_strchr(const char *string, int searched_char);
+char	*ft_strdup(const char *source);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *destination, const char *source, size_t size);
 size_t	ft_strlen(const char *string);
 int		ft_strncmp(const char *first, const char *second, size_t length);
 char 	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *string, int searched_char);
+char	*ft_substr(const char *source, size_t start, size_t length);
 int		ft_tolower(int character);
 int		ft_toupper(int character);
 
