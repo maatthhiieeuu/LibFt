@@ -6,7 +6,7 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/30  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/30  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/06  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -16,15 +16,20 @@
 
 char	*ft_strrchr(const char *string, int searched_char)
 {
+	if(!string)
+		return (NULL);
+
 	size_t	str_len = ft_strlen(string);
 	char	*str_end = (char *)string + str_len;
 	char	chr = (char)searched_char;
+
 	while(str_end >= string)
 	{
 		if(*str_end == chr)
 			return(str_end);
 		str_end--;
 	}
+
 	return(NULL);
 }
 

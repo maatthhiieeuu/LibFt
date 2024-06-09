@@ -15,15 +15,20 @@
 
 char	*ft_strchr(const char *string, int searched_char)
 {
+	if(!string)
+		return(NULL);
+
 	int		i = 0;
 	char	c = (char)searched_char;
 	char	*str = (char *)string;
+
 	while(string[i] != '\0')
 	{
 		if(str[i] == c)
 			return(str + i);
 		i++;
 	}
+	
 	return(NULL);
 }
 

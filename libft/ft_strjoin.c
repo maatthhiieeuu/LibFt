@@ -5,26 +5,15 @@
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/06/05  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/05  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/06/06  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/06/06  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-//#include "libft.h"
-
-size_t ft_strlen(const char *string)
-{
-	size_t len = 0;
-
-	while(string[len] != 0)
-	{
-		len += 1;
-	}
-	return len;
-}
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

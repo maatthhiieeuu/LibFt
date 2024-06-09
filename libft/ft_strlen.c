@@ -13,15 +13,16 @@
 #include "libft.f"
 #include <stddef.h> //Pour size_t
 
-size_t ft_strlen(const char *string)
+size_t	ft_strlen(const char *string)
 {
 	size_t len = 0;
 
-	while(string[len] != 0)
+	while(string[len] != '\0')
 	{
 		len += 1;
 	}
-	return len;
+	
+	return (len);
 }
 
 /*

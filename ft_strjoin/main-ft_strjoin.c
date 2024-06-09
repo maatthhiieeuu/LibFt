@@ -5,8 +5,8 @@
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/06/05  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/05  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/06/06  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/06/06  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -19,14 +19,15 @@
 
 char	*ft_strjoin(char const *s1, char const *s2);
 
-void test_strjoin(const char *s1, const char *s2, size_t i) {
-	
+void test_strjoin(const char *s1, const char *s2, size_t i) 
+{	
     printf(CLR_Y"Test %ld for ft_strjoin(\"%s\", \"%s\"):\n"CLR_r, i,  s1, s2);
   
     char *result = ft_strjoin(s1, s2);
-    if (result == NULL) {
+    if (result == NULL) 
         printf("Result: NULL\n\n");
-    } else {
+    else 
+    {
         printf("Result: \"%s\"\n\n", result);
         free(result); // Libérer la mémoire allouée
     }
@@ -35,6 +36,7 @@ void test_strjoin(const char *s1, const char *s2, size_t i) {
 
 int main() {
 	size_t	i = 1;
+
     test_strjoin("Hello, ", "world!", i);
     i++;
     test_strjoin("", "", i);
@@ -49,5 +51,6 @@ int main() {
     i++;
     test_strjoin(NULL, "world!", i);
     i++;
+
     return 0;
 }
