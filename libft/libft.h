@@ -9,6 +9,7 @@ int		ft_isalpha(int character);
 int		ft_isascii(int character);
 int		ft_isdigit(int character);
 int		ft_isprint(int character);
+char	*ft_itoa(int n)
 void	*ft_memchr(const void *memory_block, int searched_char, size_t size);
 int		ft_memcmp(const void *pointer1, const void *pointer2, size_t size);
 void	*ft_memmove(void *destination, const void *source, size_t size);
