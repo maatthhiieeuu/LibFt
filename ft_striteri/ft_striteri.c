@@ -1,6 +1,6 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_strmapi.c                       ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_striteri.c                       ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
@@ -10,38 +10,31 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stdlib.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	
+
+
 }
-
-
-
-
-
-
-
 
 /*
 
-Function name:					ft_strmapi
+Function name:					ft_striteri
 
-Prototype:						char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+Prototype:						void ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-Paramètres:						s: La chaîne de caractères sur laquelle itérer.
+Paramètres:						s:La chaîne de caractères sur laquelle itérer.
 								f: La fonction à appliquer à chaque caractère.
 
-Valeur de retour:				La chaîne de caractères résultant des applications
-								successives de ’f’.
-								Retourne NULL si l’allocation échoue.
+Valeur de retour:				Aucune
 
-Fonctions externes autorisées:	malloc
+Fonctions externes autorisées:	Aucune
 
 Description:					Applique la fonction ’f’ à chaque caractère de la
-								chaîne de caractères passée en argument pour créer
-								une nouvelle chaîne de caractères (avec malloc(3))
-								résultant des applications successives de ’f’.
+								chaîne de caractères transmise comme argument,
+								et en passant son index comme premier argument.
+								Chaque caractère est transmis par adresse à ’f’
+								afin d’être modifié si nécessaire.
 
 */
