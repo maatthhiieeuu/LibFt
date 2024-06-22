@@ -1,6 +1,6 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_striteri.c                       ::::::  ::::::    :::::::::              */
+/*   Project : libft/main-ft_putchar_fd.c               ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
@@ -10,31 +10,7 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
+//#include "libft.h"
+#include <stddef.h>
 
-
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
-{
-
-
-}
-
-/*
-
-Function name:					ft_striteri
-
-Prototype:						void ft_striteri(char *s, void (*f)(unsigned int, char*));
-
-Paramètres:						s:La chaîne de caractères sur laquelle itérer.
-								f: La fonction à appliquer à chaque caractère.
-
-Valeur de retour:				Aucune
-
-Fonctions externes autorisées:	Aucune
-
-Description:					Applique la fonction ’f’ à chaque caractère de la
-								chaîne de caractères transmise comme argument,
-								et en passant son index comme premier argument.
-								Chaque caractère est transmis par adresse à ’f’
-								afin d’être modifié si nécessaire.
-
-*/
+void ft_putchar_fd(char c, int fd);

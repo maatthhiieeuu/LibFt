@@ -17,6 +17,7 @@ void	*ft_memset(void *pointer, int value, size_t count);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *string, int searched_char);
 char	*ft_strdup(const char *source);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *destination, const char *source, size_t size);

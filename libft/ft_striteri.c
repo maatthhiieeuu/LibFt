@@ -1,6 +1,6 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/main-ft_striteri.c                 ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_striteri.c                      ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
@@ -9,32 +9,41 @@
 /*   Updated: 2024/06/22  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
-#include <stdio.h>
 
-// Déclaration des fonctions
-void ft_striteri(char *s, void (*f)(unsigned int, char*));
-void to_uppercase(unsigned int index, char *c);
+//#include "libft.h"
+#include <stddef.h>
 
-// Exemple de fonction à appliquer : convertit chaque caractère en majuscule
-void to_uppercase(unsigned int index, char *c) {
-	(void)index;
-    if (*c >= 'a' && *c <= 'z') {
-        *c = *c - 32;  // Convertit en majuscule
-    }
+void ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	if(!s || !f)
+		return;
+
+	size_t	i 	= 0;
+
+	while(s[i] != '\0')
+	{
+		f(i, s + i);
+		i++;
+	}
 }
 
-int main() {
-    // Chaîne de caractères à modifier
-    char str[] = "bonjour, monde!";
-    
-    // Affiche la chaîne avant modification
-    printf("Avant modification : %s\n", str);
-    
-    // Appelle ft_striteri avec la fonction to_uppercase
-    ft_striteri(str, to_uppercase);
-    
-    // Affiche la chaîne après modification
-    printf("Après modification : %s\n", str);
-    
-    return 0;
-}
+/*
+
+Function name:					ft_striteri
+
+Prototype:						void ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+Paramètres:						s:La chaîne de caractères sur laquelle itérer.
+								f: La fonction à appliquer à chaque caractère.
+
+Valeur de retour:				Aucune
+
+Fonctions externes autorisées:	Aucune
+
+Description:					Applique la fonction ’f’ à chaque caractère de la
+								chaîne de caractères transmise comme argument,
+								et en passant son index comme premier argument.
+								Chaque caractère est transmis par adresse à ’f’
+								afin d’être modifié si nécessaire.
+
+*/
