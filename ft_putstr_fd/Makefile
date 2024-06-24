@@ -1,6 +1,6 @@
 CC = gcc
 FLAG = -Wall -Wextra -Werror
-EXE = test-ft_putchar_fd
+EXE = test-ft_putstr_fd
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
@@ -16,9 +16,9 @@ clean :
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(EXE) testfile.txt 
+	rm -rf $(EXE) testfile.txt
 
-re : fclean all
-	./$(EXE)
+re : fclean all 
+	./$(EXE) 
 
 .PHONY : all clean fclean re

@@ -14,6 +14,9 @@ void	*ft_memchr(const void *memory_block, int searched_char, size_t size);
 int		ft_memcmp(const void *pointer1, const void *pointer2, size_t size);
 void	*ft_memmove(void *destination, const void *source, size_t size);
 void	*ft_memset(void *pointer, int value, size_t count);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *string, int searched_char);
 char	*ft_strdup(const char *source);
@@ -30,5 +33,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int character);
 int		ft_toupper(int character);
+ssize_t	ft_write_check(ssize_t output);
 
 #endif //LIBFT_H
