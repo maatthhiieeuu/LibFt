@@ -1,46 +1,54 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_putendl_fd.c                     ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_putnbr_fd.c                     ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/06/24  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/24  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/06/25  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/06/25  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <unistd.h>
-
-ssize_t	ft_write_check(ssize_t output)
-{
-	if(output == -1)
-		perror("write");
-
-	return(output);
-}
+#include "libft.h"
+#include <errno.h>
+#include <stdio.h>
 
 void ft_putnbr_fd(int n, int fd)
 {
 	if(fd < 0)
 		return;
 
-	char	c	= 0;
-
-	if(n < 0)
+	char	temp_dgt	= 0;
+	if(n == -2147483648)
+	{
+		if(ft_write_check(write(fd, "-2", 2)) == -1)
+			return;
+		n = 147483648;
+		ft_putnbr_fd(n, fd);
+	}
+	else if(n < 0)
 	{
 		if(ft_write_check(write(fd, "-", 1)) == -1)
 			return;
-		n *= -n;
+		n *= -1;
+		ft_putnbr_fd(n, fd);
 	}
-	if(n >= 0 && n <= 9)
+	else if(n >= 0 && n <= 9)
 	{
+		n += '0';
 		if(ft_write_check(write(fd, &n, 1)) == -1)
 			return;
+		n = 0;
 	}
-	if(n > 9)
+	else if(n > 9)
 	{
-		
+		temp_dgt = n % 10;
+		n /= 10;
+		ft_putnbr_fd(n, fd);
+		temp_dgt += '0';
+		if(ft_write_check(write(fd, &temp_dgt, 1)) == -1)
+			return;
 	}
 }
 /*
