@@ -6,25 +6,30 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/30  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/30  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
-#include <stdio.h>
 #include "libft.h"
+//#include <stddef.h>
+//#include <stdio.h>
+//#include <errno.h>
 
 int	ft_strncmp(const char *first, const char *second, size_t length)
 {
-	size_t	i = 0;
 	if(!first || !second)
-		printf("\033[1;31mError fonction strncmp\033[1;0m");
+		perror("Error fonction strncmp");
+
+	size_t	i	= 0;
+
 	while(first[i] != 0 && second[i] != 0 && i < length)
 	{
 		if(first[i] != second[i])
 			return(first[i] - second[i]);
+		
 		i += 1;
 	}
+
 	return(first[i] - second[i]);
 }
 

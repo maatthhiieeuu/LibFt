@@ -6,40 +6,41 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/24  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/24  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
-#include <stddef.h>		//Pour l'utilisation de size_t
+//#include <stddef.h>		//Pour l'utilisation de size_t
 
 void	*ft_memmove(void *destination, const void *source, size_t size)
 {
-    unsigned char		*dest = (unsigned char *)destination;
-    const unsigned char *src = (const unsigned char *)source;
-    size_t				i = 0;
+	if(!destination || !source || size == 0)
+		return(NULL);
 
-    if(!destination || !source)
-        return (NULL);
+	unsigned char		*dest	= (unsigned char *)destination;
+	const unsigned char	*src	= (const unsigned char *)source;
+	size_t				i		= 0;
 
-    if(dest < src)
-    {
-        while(i < size)
-        {
-            dest[i] = src[i];
-            i += 1;
-        }
-    }
-    else if(dest > src)
-    {
-        i = size;
-        while(i > 0)
-        {
-            i--;
-            dest[i] = src[i];
-        }
-    }
-    return(destination);
+	if(dest < src)
+	{
+		while(i < size)
+		{
+			dest[i] = src[i];
+			i += 1;
+		}
+	}
+	else if(dest > src)
+	{
+		i = size;
+		while(i > 0)
+		{
+			i--;
+			dest[i] = src[i];
+		}
+	}
+
+	return(destination);
 }
 
 /*

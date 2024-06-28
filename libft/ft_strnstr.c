@@ -6,26 +6,27 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/01  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/01  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
 #include "libft.h"
+//#include <stddef.h>
 
-char 	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	if(!big)
 		return(NULL);
 	else if(!little || *little == '\0')
 		return((char *)big);
 
-	size_t	i = 0;
-	size_t	j = 0;
-	size_t	little_len = ft_strlen(little);
+	size_t	i			= 0;
+	size_t	j			= 0;
+	size_t	little_len	= ft_strlen(little);
 
 	if(len < little_len)
 		return(NULL);
+
 	while(big[i] != '\0' && little[j] != '\0' && i <= len - little_len)
 	{
 		if(big[i] == little[j])
@@ -34,12 +35,15 @@ char 	*ft_strnstr(const char *big, const char *little, size_t len)
 			{
 				j += 1;
 			}
+
 			if(j >= little_len)
 				return((char *)big + i);
 		}
+
 		j = 0;
 		i += 1;
 	}
+	
 	return(NULL);
 
 }

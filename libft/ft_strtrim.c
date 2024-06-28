@@ -6,26 +6,26 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/09  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/09  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
+//#include <stdlib.h>
+//#include <stddef.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	if(!s1)
-		return (NULL);
+		return(NULL);
 
-	char	*result = NULL;
-	size_t	len_s1 = ft_strlen(s1);
-	char	*b_index = (char *)s1;
-	char	*e_index = (char *)s1 + len_s1 - 1;
-	size_t	i = 0;
-	int 	search = 1;
-	size_t	len_result = 0;
+	char	*result		= NULL;
+	size_t	len_s1		= ft_strlen(s1);
+	char	*b_index	= (char *)s1;
+	char	*e_index	= (char *)s1 + len_s1 - 1;
+	size_t	i			= 0;
+	int		search		= 1;
+	size_t	len_result	= 0;
 
 /*-------   initialisation de begin_index    -------*/
 	while(*b_index != '\0' && search == 1)
@@ -55,6 +55,7 @@ char	*ft_strtrim(char const *s1, char const *set)
           e_index--;
           i = 0;
         }
+
         if(*e_index != set[i] && set[i] == '\0')
             search = 0;
         else
@@ -68,6 +69,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 /*-------   allocation dynamique de result    -------*/
 	result = (char *)malloc((len_result + 1) * sizeof(char));
+
 	if(!result)
 		return(NULL);
 
@@ -78,6 +80,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 		b_index++;
 	}
+
 	result[i] = '\0';
 
 	return(result);

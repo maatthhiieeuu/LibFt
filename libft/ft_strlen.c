@@ -6,16 +6,19 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/14  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/14  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include "libft.f"
-#include <stddef.h> //Pour size_t
+#include "libft.h"
+//#include <stddef.h> //Pour size_t
 
 size_t	ft_strlen(const char *string)
 {
-	size_t len = 0;
+	if(!string)
+		return(0);
+
+	size_t	len	= 0;
 
 	while(string[len] != '\0')
 	{

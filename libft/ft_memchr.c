@@ -6,17 +6,22 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/31  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/31  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
+#include "libft.h"
+//#include <stddef.h>
 
 void	*ft_memchr(const void *memory_block, int searched_char, size_t size)
 {
-	char	chr = (char)searched_char;
-	char	*mem_blc = (char *)memory_block;
-	size_t	i = 0;
+	if(!memory_block)
+		return(NULL);
+
+	char	chr			= (char)searched_char;
+	char	*mem_blc	= (char *)memory_block;
+	size_t	i			= 0;
+
 	if(!memory_block)
 		return(NULL);
 	while(i < size)
@@ -25,6 +30,7 @@ void	*ft_memchr(const void *memory_block, int searched_char, size_t size)
 			return(mem_blc + i);
 		i += 1;
 	}
+
 	return(NULL);
 }
 

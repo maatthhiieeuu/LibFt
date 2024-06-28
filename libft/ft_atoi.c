@@ -6,21 +6,22 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/03  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/03  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
+#include "libft.h"
+//#include <stddef.h>
 
 int	ft_atoi(const char *string)
 {
 	if(!string)
 		return(0);
 
-	size_t			i = 0;
-	char			*str = (char *)string;
-	int				flag_sign = 0;
-	int				result = 0;
+	size_t			i			= 0;
+	char			*str		= (char *)string;
+	int				flag_sign	= 0;
+	int				result		= 0;
 
 	
 		while(str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
@@ -32,18 +33,22 @@ int	ft_atoi(const char *string)
 		{
 			flag_sign = -1;
 			i += 1;
-		}else if(str[i] == '+' &&  ft_isdigit(str[i + 1]) && flag_sign == 0)
+		}
+		else if(str[i] == '+' &&  ft_isdigit(str[i + 1]) && flag_sign == 0)
 		{
 			flag_sign = 1;
 			i += 1;
 		}
+
 		while(ft_isdigit(str[i]))
 		{
 			result = result * 10 + str[i] - 48;
 			i += 1;  
 		}
+
 		if(flag_sign == 0)
 			flag_sign = 1;
+
 		return(result * flag_sign);
 }
 

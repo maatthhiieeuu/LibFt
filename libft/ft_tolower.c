@@ -6,7 +6,7 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/27  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/27  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -16,6 +16,7 @@ int	ft_tolower(int character)
 {
 	if(character >= 'A' && character <= 'Z')
 		return(character + 32);
+
 	return(character);
 }
 

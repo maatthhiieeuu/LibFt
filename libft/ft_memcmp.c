@@ -6,11 +6,12 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/31  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/31  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
+#include "libft.h"
+//#include <stddef.h>
 
 int	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 {
@@ -27,6 +28,7 @@ int	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 			return(ptr1[i] - ptr2[i]);
 		i += 1;
 	}
+
 	return(ptr1[i] - ptr2[i]);
 }
 

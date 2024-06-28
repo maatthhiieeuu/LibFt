@@ -6,14 +6,14 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/24  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/24  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-//#include "libft.h"
-#include <unistd.h>
-#include <errno.h>
-#include <stdio.h>
+#include "libft.h"
+//#include <unistd.h>
+//#include <errno.h>
+//#include <stdio.h>
 
 ssize_t	ft_write_check(ssize_t output)
 {

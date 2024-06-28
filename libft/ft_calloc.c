@@ -6,36 +6,25 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/03  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/03  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdint.h>
-
-void	*ft_memset(void *pointer, int value, size_t count)
-{
-	unsigned char *memoryBloc = (unsigned char *)pointer;
-	unsigned char character = (unsigned char)value;
-	size_t	i = 0;
-	
-	while(i < count)
-	{
-		*memoryBloc = character;
-		memoryBloc++;
-		i += 1;
-	}
-	return (pointer);
-}
+#include "libft.h"
+//#include <stddef.h>
+//#include <stdlib.h>
+//#include <stdint.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
 	if(size != 0 && size > SIZE_MAX / count)
 		return(NULL);
-	void	*ptr = NULL;
+
+	void	*ptr	= NULL;
+
 	ptr = malloc(count * size);
 	ft_memset(ptr, 0, count * size);
+	
 	return(ptr);
 }
 

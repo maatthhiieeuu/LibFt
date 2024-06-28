@@ -6,19 +6,19 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/22  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/22  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-//#include "libft.h"
-#include <stddef.h>
+#include "libft.h"
+//#include <stddef.h>
 
-void ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	if(!s || !f)
 		return;
 
-	size_t	i 	= 0;
+	size_t	i	= 0;
 
 	while(s[i] != '\0')
 	{

@@ -6,15 +6,16 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/14  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/14  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
 
-int ft_isascii(int character)
+int	ft_isascii(int character)
 {
 	if(character >= 0 && character <= 127)
 		return (1);
+
 	return (0);
 }

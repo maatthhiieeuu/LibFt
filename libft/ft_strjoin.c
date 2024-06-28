@@ -6,14 +6,14 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/06  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/06  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <stddef.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -21,25 +21,28 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return(NULL);
 
 	char	*result = NULL;
-	result = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	result			= (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+
 	if(!result)
 		return(NULL);
 
-	size_t	i = 0;
-	size_t	j = 0;
+	size_t	i	= 0;
+	size_t	j	= 0;
 
 	while(s1[i] != '\0')
 	{
 		result[i] = s1[i];
 		i += 1;
 	}
+
 	while(s2[j] != '\0')
 	{
 		result[i + j] = s2[j];
 		j += 1;
 	}
+
 	result[i + j] = '\0';
-	
+
 	return(result);
 }
 

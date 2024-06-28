@@ -6,20 +6,45 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/20  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/20  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-//#include "libft.h"
-#include <stdlib.h>
+#include "libft.h"
+//#include <stdlib.h>
 
 size_t	count_char_number(int n_cpy, int *sign);
 char	*allocate_string(char *result, size_t len_number);
-char    *initialization_exit(int n_cpy, char *result, size_t len_number, int sign);
+char	*initialization_exit(int n_cpy, char *result, size_t len_number, int sign);
+char	*init_limit_exit(int n_cpy, char *result);
+
+char	*ft_itoa(int n)
+{
+	char	*result		= NULL;
+	int		sign		= 1;
+	size_t	len_number	= 0;
+	int		n_cpy		= n;
+
+	len_number	= count_char_number(n_cpy, &sign);
+	if(len_number == 0)
+		return(NULL);
+	result		= allocate_string(result, len_number);
+	if(!result)
+		return(NULL);
+	if(n == -2147483648 || n == 2147483647)
+		result = init_limit_exit(n_cpy, result);
+	else
+		result = initialization_exit(n_cpy, result, len_number, sign);
+
+	return(result);
+}
 
 //compte le nombre de caractere qui compose le nombre moin inclus 
 size_t	count_char_number(int n_cpy, int *sign)
 {
+	if(!sign)
+		return(0);
+
 	size_t	len_number	= 0;
 	
 	if(n_cpy < 0)
@@ -104,26 +129,7 @@ char  *init_limit_exit(int n_cpy, char *result)
 	return(result);
 }
 
-char	*ft_itoa(int n)
-{
-	char	*result		= NULL;
-	int		sign		= 1;
-	size_t	len_number	= 0;
-	int		n_cpy		= n;
 
-	len_number	= count_char_number(n_cpy, &sign);
-	if(len_number == 0)
-		return(NULL);
-	result		= allocate_string(result, len_number);
-	if(!result)
-		return(NULL);
-	if(n == -2147483648 || n == 2147483647)
-		result = init_limit_exit(n_cpy, result);
-	else
-		result = initialization_exit(n_cpy, result, len_number, sign);
-
-	return(result);
-}
 
 /*
 

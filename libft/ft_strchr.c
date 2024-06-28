@@ -6,29 +6,30 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/30  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/30  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
-#include <stddef.h>
+//#include <stddef.h>
 
 char	*ft_strchr(const char *string, int searched_char)
 {
 	if(!string)
 		return(NULL);
 
-	int		i = 0;
-	char	c = (char)searched_char;
-	char	*str = (char *)string;
+	int		i		= 0;
+	char	c		= (char)searched_char;
+	char	*str	= (char *)string;
 
 	while(string[i] != '\0')
 	{
 		if(str[i] == c)
 			return(str + i);
+
 		i++;
 	}
-	
+
 	return(NULL);
 }
 

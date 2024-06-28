@@ -6,15 +6,16 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/19  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/19  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
-#include <stdlib.h>
-//#include "libft.h"
+
+//#include <stdlib.h>
+#include "libft.h"
 
 size_t	count_adress_necessary(char const *str, char c);
-char  **allocation_result(size_t tab_len);
-int    account_allocates_sentence_length(char *str, char c, char **result);
+char	**allocation_result(size_t tab_len);
+int		account_allocates_sentence_length(char *str, char c, char **result);
 void	initialization_substrings(char *str, char **result, char c, size_t tab_len);
 void	free_result(char **result, size_t tab_len);
 
@@ -24,18 +25,21 @@ char	**ft_split(char const *s, char c)
 		return(NULL);
 
 	char	**result	= NULL;
-	char	*str 		= (char *)s;
+	char	*str		= (char *)s;
 	size_t	tab_len		= 0;
 
 	tab_len = count_adress_necessary(str, c);
 	result 	= allocation_result(tab_len);
+
 	if(!result)
 		return(NULL);
+
 	if(!account_allocates_sentence_length(str, c, result))
 	{
 		free_result(result, tab_len);
 		return(NULL);
 	}
+
 	initialization_substrings(str, result, c, tab_len);
 
 	return(result);	
@@ -47,19 +51,21 @@ size_t	count_adress_necessary(char const *str, char c)
 	if(!str)
 		return(0);
 
-	size_t			tab_len = 0;
-	size_t			i 		= 0;
-	unsigned int	flag 	= 0;
+	size_t			tab_len	= 0;
+	size_t			i		= 0;
+	unsigned int	flag	= 0;
 
 	while(str[i] != '\0')
 	{
 		if(str[i] != c && flag == 0)
 			flag = 1;
+
 		if((str[i] == c || str[i + 1] == '\0') && flag == 1)
 		{
 			tab_len++;
 			flag = 0;
 		}
+
 		i++;
 	}
 
@@ -70,24 +76,25 @@ size_t	count_adress_necessary(char const *str, char c)
 char	**allocation_result(size_t tab_len)
 {
 	char	**result	= NULL;
-	
+
 	result = (char **)malloc((tab_len + 1) * sizeof(char *));
+
 	if(!result)
 		return(NULL);
-	
+
 	return(result);
 }
 
 /******    Calcul de la taille des string déclaration et initialisations des pointeurs du tableau result    ******/
-int    account_allocates_sentence_length(char *str, char c, char **result)
+int	account_allocates_sentence_length(char *str, char c, char **result)
 {
 	if(!str || !result)
 		return(0);
 
-	size_t	str_len	= 0;  
-	size_t	i		= 0;
-	size_t	j		= 0;
-	unsigned int 	flag = 0;
+	size_t			str_len	= 0;  
+	size_t			i		= 0;
+	size_t			j		= 0;
+	unsigned int 	flag	= 0;
 
 	while(str[i] != '\0')
 	{
@@ -96,19 +103,24 @@ int    account_allocates_sentence_length(char *str, char c, char **result)
 			str_len++;
 			flag = 1;
 		}
+
 		if((str[i] == c || str[i + 1] == '\0') && flag == 1)
 		{
 			result[j] = (char *)malloc((str_len + 1) * sizeof(char));
+
 			if(!result)
 				return(0);
+
 			str_len = 0;
 			j++;
 			flag = 0;
 		}
+
 		i++;
 	}
-		if(str[i] == '\0')
-			result[j] = NULL;
+
+	if(str[i] == '\0')
+		result[j] = NULL;
 
 	return(1);
 }
@@ -133,6 +145,7 @@ void	initialization_substrings(char *str, char **result, char c, size_t tab_len)
 				free_result(result, tab_len);
 				return;
 			}
+
 			result[j][k] = str[i];
 			k++;
 			flag = 1;
@@ -144,8 +157,10 @@ void	initialization_substrings(char *str, char **result, char c, size_t tab_len)
 			k = 0;
 			flag = 0;
 		}
+
 		i++;
 	}
+
 	if(j < tab_len && result[j] != NULL)
 		result[j][k] = '\0';
 }
@@ -158,8 +173,10 @@ void	free_result(char **result, size_t tab_len)
 	{
 		if(result[i])
 			free(result[i]);
+
 		i++;
 	}
+
 	free(result);
 }
 

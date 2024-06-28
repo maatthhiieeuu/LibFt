@@ -6,34 +6,38 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/05  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/05  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
-#include <stdlib.h>
+//#include <stddef.h>
+//#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *source)
 {
-    if(!source)
-        return(NULL);
+	if(!source)
+		return(NULL);
 
-    char    *ptr = NULL;
-    size_t  len_source = 0;
-    size_t  i = 0;
+	char	*ptr	= NULL;
+	size_t	len_source	= 0;
+	size_t	i			= 0;
 
-    len_source = ft_strlen(source);
-    ptr = (char *)malloc((len_source + 1) * sizeof(char));
-    if(!ptr)
-        return(NULL);
-    while(source[i] != '\0')
-    {
-        ptr[i] = source[i];
-        i += 1;
-    }
-    ptr[len_source] = '\0';
-    return(ptr);
+	len_source	= ft_strlen(source);
+	ptr			= (char *)malloc((len_source + 1) * sizeof(char));
+
+	if(!ptr)
+	    return(NULL);
+
+	while(source[i] != '\0')
+	{
+	    ptr[i] = source[i];
+	    i += 1;
+	}
+
+	ptr[len_source] = '\0';
+
+	return(ptr);
 }
 
 /*

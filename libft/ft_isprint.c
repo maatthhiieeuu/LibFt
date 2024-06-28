@@ -6,7 +6,7 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/14  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/14  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -16,6 +16,7 @@ int	ft_isprint(int character)
 {
 	if(character >= 32 && character <= 126)
 		return (16384);
+
 	return (0);
 }
 

@@ -6,12 +6,12 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/15  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/15  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
-#include <stddef.h>
+//#include <stddef.h>
 
 void	ft_bzero(void *pointer, size_t n)
 {

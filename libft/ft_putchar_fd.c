@@ -6,18 +6,19 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/24  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/24  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-//#include "libft.h"
-#include <unistd.h>
+#include "libft.h"
+//#include <unistd.h>
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	if(fd < 0)
 		return;
-	ft_write_check(fd, &c, sizeof(c));
+
+	ft_write_check(write(fd, &c, sizeof(c)));
 }
 
 /*

@@ -1,6 +1,6 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_putendl_fd.c                     ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_putendl_fd.c                    ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
@@ -11,13 +11,13 @@
 /* ********************************************************************************************* */
 
 #include "libft.h"
-#include <unistd.h>
-#include <errno.h>
-#include <stdio.h>
+//#include <unistd.h>
+//#include <errno.h>
+//#include <stdio.h>
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if(fd < 0 || !s)
+	if(!s || fd < 0)
 		return;
 
 	while(*s != '\0')
@@ -26,6 +26,7 @@ void ft_putendl_fd(char *s, int fd)
 		return;
 		s++;
 	}
+	
 	if(ft_write_check(write(fd, "\n", 1)) == -1)
 		return;
 }

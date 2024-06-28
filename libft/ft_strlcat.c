@@ -6,30 +6,34 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/27  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/27  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include <stddef.h>
+#include "libft.h"
+//#include <stddef.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	if(!dst)
 		return(0);
 
-	size_t	dst_len = ft_strlen(dst);
-	size_t	src_len = ft_strlen(src);
-	size_t	i = 0;
+	size_t	dst_len	= ft_strlen(dst);
+	size_t	src_len	= ft_strlen(src);
+	size_t	i		= 0;
 
 	if(!src)
 		return(dst_len);
+
 	if(size <= dst_len)
 		return(src_len + size);
+
 	while(src[i] != '\0' && dst_len + i < size - 1)
 	{
 		dst[dst_len + i] = src[i];
 		i += 1;
 	}
+
 	dst[dst_len + i] = '\0';
 
 	return(dst_len + src_len);

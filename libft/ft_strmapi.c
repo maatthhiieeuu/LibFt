@@ -6,10 +6,11 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/21  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/21  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
+#include "libft.h"
 #include <stdlib.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -20,12 +21,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*result	= NULL;
 	size_t	len		= 0;
 	size_t	i		= 0;
+	len				= ft_strlen(s);
 
-	len = ft_strlen(s);
 	if(len == 0)
 		return(NULL);
 
 	result = (char *)malloc((len + 1) * sizeof(char));
+
 	if(!result)
 		return(NULL);
 
@@ -34,6 +36,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		result[i] = f(i, s[i]);
 		i++;
 	}
+
 	result[i] = '\0';
 
 	return(result);

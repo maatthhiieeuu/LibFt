@@ -6,18 +6,21 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/15  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/15  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
-#include <stddef.h>
+//#include <stddef.h>
 
 void	*ft_memset(void *pointer, int value, size_t count)
 {
-	unsigned char *memoryBloc = (unsigned char *)pointer;
-	unsigned char character = (unsigned char)value;
-	size_t	i = 0;
+	if(!pointer || count == 0)
+		return(NULL);
+
+	unsigned char	*memoryBloc	= (unsigned char *)pointer;
+	unsigned char	character	= (unsigned char)value;
+	size_t			i			= 0;
 	
 	while(i < count)
 	{
@@ -25,6 +28,7 @@ void	*ft_memset(void *pointer, int value, size_t count)
 		memoryBloc++;
 		i += 1;
 	}
+
 	return (pointer);
 }
 

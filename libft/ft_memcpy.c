@@ -6,25 +6,28 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/15  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/05/15  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
-#include <stdio.h>		//Pour l'utilisation de printf.
-
+//#include <stdio.h>		//Pour l'utilisation de printf.
 
 void	*ft_memcpy(void *destination, const void *source, size_t size)
 {
-	char *dest = (char *)destination;
-	char *src = (char *)source;
-	size_t i = 0;
+	if(!destination || !source || size == 0)
+		return(NULL);
+
+	char	*dest	= (char *)destination;
+	char	*src	= (char *)source;
+	size_t	i		= 0;
 
 	while(i < size)
 	{
 		dest[i] = src[i];
 		i += 1;
 	}
+
 	return (destination);
 }
 
@@ -43,9 +46,12 @@ Attention, contrairement à strcpy, aucun test sur une éventuelle valeur nulle 
 pour stopper la copie. Seule la taille du bloc sera considérée.
 Paramètres
 
-    destination : permet de spécifier l'adresse du bloc mémoire devant recevoir les données à 
-    copier. Vous devez pré-allouer ce bloc de mémoire (certainement via la fonction malloc).
+    destination :	permet de spécifier l'adresse du bloc mémoire devant recevoir les données à 
+    				copier. Vous devez pré-allouer ce bloc de mémoire (certainement via la 
+    				fonction malloc).
+
     source : permet de définir l'adresse du bloc de mémoire à dupliquer.
+
     size : indique le nombre d'octets à dupliquer.
 
 Valeur de retour

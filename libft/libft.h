@@ -1,6 +1,12 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 
+#include <stddef.h>
+#include <unistd.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 int		ft_atoi(const char *string);
 void	ft_bzero(void *pointer, size_t n);
 void	*ft_calloc(size_t count, size_t size);
@@ -9,9 +15,10 @@ int		ft_isalpha(int character);
 int		ft_isascii(int character);
 int		ft_isdigit(int character);
 int		ft_isprint(int character);
-char	*ft_itoa(int n)
+char	*ft_itoa(int n);
 void	*ft_memchr(const void *memory_block, int searched_char, size_t size);
 int		ft_memcmp(const void *pointer1, const void *pointer2, size_t size);
+void	*ft_memcpy(void *destination, const void *source, size_t size);
 void	*ft_memmove(void *destination, const void *source, size_t size);
 void	*ft_memset(void *pointer, int value, size_t count);
 void	ft_putchar_fd(char c, int fd);
