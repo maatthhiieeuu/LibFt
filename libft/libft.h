@@ -7,6 +7,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
 int		ft_atoi(const char *string);
 void	ft_bzero(void *pointer, size_t n);
 void	*ft_calloc(size_t count, size_t size);
@@ -16,6 +22,10 @@ int		ft_isascii(int character);
 int		ft_isdigit(int character);
 int		ft_isprint(int character);
 char	*ft_itoa(int n);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(void *content);
+int		ft_lstsize(t_list *lst);
 void	*ft_memchr(const void *memory_block, int searched_char, size_t size);
 int		ft_memcmp(const void *pointer1, const void *pointer2, size_t size);
 void	*ft_memcpy(void *destination, const void *source, size_t size);
