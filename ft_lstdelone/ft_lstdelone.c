@@ -1,47 +1,41 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_lstadd_back.c                       ::::::  ::::::    :::::::::              */
+/*   Project : libft/ft_lstdelone.c                   ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/07/05  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/07/05  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/07/0  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "ft_lstadd_back.h"
+#include <stddef.h>
+#include <stdio.h>
 
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if(!lst)
-		return;
 
-	while(lst != NULL)
-	{
-		lst = lst->next;
-	}
-	if(lst->next == NULL)
-	{
-		lst->next = new;
-		new->next = NULL;
-	}
 }
+
 
 /*
 
-Function name:					ft_lstadd_back
+Function name:					ft_lstdelone
 
-Prototype:						void ft_lstadd_back(t_list **lst, t_list *new);
+Prototype:						void ft_lstdelone(t_list *lst, void (*del)(void *));
 
-Paramètres:						lst: L’adresse du pointeur vers le premier élément de la liste.
-								new: L’adresse du pointeur vers l’élément à rajouter à la liste.
+Paramètres:	lst:				L’élément à free
+								del: L’adresse de la fonction permettant de
+								supprimer le contenu de l’élément.
 
 Valeur de retour:				Aucune
 
-Fonctions externes autorisées:	Aucune
+Fonctions externes autorisées:	free
 
-Description:					Ajoute l’élément ’new’ à la fin de la liste.
+Description:					Libère la mémoire de l’élément passé en argument en
+								utilisant la fonction ’del’ puis avec free(3). La
+								mémoire de ’next’ ne doit pas être free.
 
 */
