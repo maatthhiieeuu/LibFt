@@ -10,7 +10,7 @@
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include "ft_lst.h"
+#include "ft_lstdelone.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,166 +18,40 @@
 int	main()
 {
 	printf("\033[1;34m\n\nDébut du test de la fonction ft_lstsize.\n\033[1;0m");
-	printf("\033[1;33m\nInitialisation des variables:\n\033[1;0m");
+	// Création de trois nœuds
+    t_list *node1 = ft_lstnew(malloc(10)); // Exemple de contenu
+    t_list *node2 = ft_lstnew(malloc(20)); // Exemple de contenu
+    t_list *node3 = ft_lstnew(malloc(30)); // Exemple de contenu
 
+    // Ajout des nœuds à la liste
+    t_list *list = NULL;
+    ft_lstadd_back(&list, node1);
+    ft_lstadd_back(&list, node2);
+    ft_lstadd_back(&list, node3);
 
-	int		result = 0;
-	t_list	*node1 = NULL;
-	t_list	*node2 = NULL;
-	t_list	*node3 = NULL;
-	t_list	*node4 = NULL;
-	t_list	*last_tmp = NULL;
-	t_list	*last_node = NULL;
+    // Suppression du deuxième nœud
+    t_list *temp = list;
+    if (temp && temp->next) {
+        t_list *node_to_delete = temp->next; // Le deuxième nœud
+        temp->next = node_to_delete->next;   // Rechainage de la liste
+        ft_lstdelone(node_to_delete, del); // Suppression du nœud
+    }
 
-	printf("\033[1;35m\n-result = \033[1;32m%d\n\033[1;0m", result);
-	printf("\033[1;35m\n-node1  = \033[1;32m%p\n\033[1;0m", (void *)node1);
-	printf("\033[1;35m\n-node2  = \033[1;32m%p\n\033[1;0m", (void *)node2);
-	printf("\033[1;35m\n-node3  = \033[1;32m%p\n\033[1;0m", (void *)node3);
-	printf("\033[1;35m\n-node4  = \033[1;32m%p\n\033[1;0m", (void *)node4);
-	printf("\033[1;35m\n-last_tmp   = \033[1;32m%p\n\033[1;0m", (void *)last_tmp);
+    // Vérification de la liste après suppression
+    temp = list;
+    while (temp) {
+        printf("Node content: %p\n", temp->content);
+        temp = temp->next;
+    }
 
+    // Libération des nœuds restants
+    while (list) {
+        t_list *next = list->next;
+        ft_lstdelone(list, del);
+        list = next;
+    }
 
-	printf("\033[1;33m\nCréation des noeuds:\n\033[1;0m");
-
-
-	node1	= ft_lstnew((void *)(size_t)1);
-	node2	= ft_lstnew((void *)(size_t)2);
-	node3	= ft_lstnew((void *)(size_t)3);
-
-	printf("\033[1;35m\n-NODE1:		\033[1;32m%p\033[1;0m\n", (void *)node1);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node1->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node1->next);
-
-	printf("\033[1;35m\n-NODE2:		\033[1;32m%p\033[1;0m\n", (void *)node2);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node2->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node2->next);
-
-	printf("\033[1;35m\n-NODE3:		\033[1;32m%p\033[1;0m\n", (void *)node3);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node3->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node3->next);
-
-
-	printf("\033[1;33m\nChainage des noeuds:\n\033[1;0m");
-
-	last_tmp = NULL;
-
-	//last_tmp = node3;
-	ft_lstadd_back(&last_tmp, node1);
-	ft_lstadd_back(&last_tmp, node2);
-	ft_lstadd_back(&last_tmp, node3);
-
-	//ft_lstadd_front(&last_tmp, node3);
-	//ft_lstadd_front(&last_tmp, node2);
-	//ft_lstadd_front(&last_tmp, node1);
-
-	//node3->next = NULL;
-
-	printf("\033[1;35m\n-NODE1:		\033[1;32m%p\033[1;0m\n", (void *)node1);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node1->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node1->next);
-
-	printf("\033[1;35m\n-NODE2:		\033[1;32m%p\033[1;0m\n", (void *)node2);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node2->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node2->next);
-
-	printf("\033[1;35m\n-NODE3:		\033[1;32m%p\033[1;0m\n", (void *)node3);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node3->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node3->next);
-
-
-	printf("\033[1;33m\nComptage du nombre de noeud dans la liste:\n\033[1;0m");
-
-
-	result = ft_lstsize(node1);
-
-	printf("\033[1;35m\nNombre de noeud dans la liste: \033[1;32m%d.\n\033[1;0m", result);
-
-
-	printf("\033[1;33m\nDernier noeud de la liste:\n\033[1;0m");
-
-
-	last_node = ft_lstlast(node1);
-
-	printf("\033[1;35m\n-LAST NODE:	\033[1;32m%p\033[1;0m\n", (void *)last_node);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)last_node->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)last_node->next);
-
-
-	printf("\033[1;33m\nCréation de NODE4:\n\033[1;0m");
-
-
-	node4	= ft_lstnew((void *)(size_t)4);
-
-	printf("\033[1;35m\n-NODE4:		\033[1;32m%p\033[1;0m\n", (void *)node4);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node4->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node4->next);
-
-
-	printf("\033[1;33m\nListe avant ajout de NODE4:\n\033[1;0m");
-
-
-	printf("\033[1;35m\n-NODE1:		\033[1;32m%p\033[1;0m\n", (void *)node1);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node1->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node1->next);
-
-	printf("\033[1;35m\n-NODE2:		\033[1;32m%p\033[1;0m\n", (void *)node2);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node2->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node2->next);
-
-	printf("\033[1;35m\n-NODE3:		\033[1;32m%p\033[1;0m\n", (void *)node3);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node3->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node3->next);
-
-	printf("\033[1;35m\n-NODE4:		\033[1;32m%p\033[1;0m\n", (void *)node4);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node4->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node4->next);
-
-	ft_lstadd_back(&node1, node4);
-
-
-	printf("\033[1;33m\nAjout de NODE4 à la fin de la liste:\n\033[1;0m");
-
-	printf("\033[1;35m\n-NODE1:		\033[1;32m%p\033[1;0m\n", (void *)node1);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node1->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node1->next);
-
-	printf("\033[1;35m\n-NODE2:		\033[1;32m%p\033[1;0m\n", (void *)node2);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node2->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node2->next);
-
-	printf("\033[1;35m\n-NODE3:		\033[1;32m%p\033[1;0m\n", (void *)node3);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node3->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node3->next);
-
-	printf("\033[1;35m\n-NODE4:		\033[1;32m%p\033[1;0m\n", (void *)node4);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)node4->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)node4->next);
-
-
-	printf("\033[1;33m\nDernier noeud de la liste:\n\033[1;0m");
-
-
-	last_node = ft_lstlast(node1);
-
-	printf("\033[1;35m\n-LAST NODE:	\033[1;32m%p\033[1;0m\n", (void *)last_node);
-	printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)last_node->content);
-	printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)last_node->next);
-
-
-	printf("\033[1;33m\nComptage du nombre de noeud dans la liste:\n\033[1;0m");
-
-
-	result = ft_lstsize(node1);
-
-	printf("\033[1;35m\nNombre de noeud dans la liste: \033[1;32m%d.\n\033[1;0m", result);
-
-	free(node1);
-	free(node2);
-	free(node3);
-
-	printf("\033[1;33m\nFin du programme.\n\033[1;0m");
-
-	return(0);
+    return 0;
 }
 
 t_list	*ft_lstnew(void *content)
@@ -204,28 +78,24 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if(!new)
+	if (!new)
 		return;
 
-	t_list	*tmp	= (void	*)lst;
-
-	if(tmp == NULL)
+	if (*lst == NULL)
 	{
-		*lst	= new;
+		*lst = new;
 		return;
 	}
 
-	while(tmp->next != NULL || tmp->next == new)
+	t_list	*tmp = *lst;
+
+	while (tmp->next != NULL)
 	{
-
-		tmp	= tmp->next;
-
-		if(tmp->next == NULL)
-		{
-			tmp->next	= new;
-			new->next	= NULL;
-		}
+		tmp = tmp->next;
 	}
+
+	tmp->next = new;
+	new->next = NULL;
 }
 
 int	ft_lstsize(t_list *lst)
@@ -255,4 +125,57 @@ t_list *ft_lstlast(t_list *lst)
 	}
 
 	return(lst);
+}
+
+void	del(void *data)
+{
+	if(!data)
+		return;
+
+	printf("\033[1;35m\n-data:		\033[1;32m%p\033[1;0m\n", (void *)data);
+	//printf("   \033[1;35m->content =	\033[1;32m%d\n\033[1;31m\033[1;0m", (int)(size_t)data->content);
+	//printf("   \033[1;35m->next    =	\033[1;32m%p\n\033[1;0m", (void *)data->next);
+
+	free(data);
+}
+
+char	*ft_strdup(const char *source)
+{
+	if(!source)
+		return(NULL);
+
+	char	*ptr	= NULL;
+	size_t	len_source	= 0;
+	size_t	i			= 0;
+
+	len_source	= ft_strlen(source);
+	ptr			= (char *)malloc((len_source + 1) * sizeof(char));
+
+	if(!ptr)
+	    return(NULL);
+
+	while(source[i] != '\0')
+	{
+	    ptr[i] = source[i];
+	    i += 1;
+	}
+
+	ptr[len_source] = '\0';
+
+	return(ptr);
+}
+
+size_t	ft_strlen(const char *string)
+{
+	if(!string)
+		return(0);
+
+	size_t	len	= 0;
+
+	while(string[len] != '\0')
+	{
+		len += 1;
+	}
+	
+	return (len);
 }

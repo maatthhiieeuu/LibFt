@@ -1,6 +1,6 @@
 CC = gcc
 FLAG = -Wall -Wextra -Werror
-EXE = test-ft_lstadd_back
+EXE = test-ft_lstdelone
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
@@ -20,5 +20,8 @@ fclean : clean
 
 re : fclean all
 	./$(EXE)
+
+val : fclean all
+	valgrind -s --leak-check=full ./$(EXE)
 
 .PHONY : all clean fclean re

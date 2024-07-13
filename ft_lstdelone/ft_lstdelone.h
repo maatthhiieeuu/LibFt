@@ -1,6 +1,8 @@
 #ifndef FT_LSTADD_BACK_H
 #define FT_LSTADD_BACK_H
 
+#include <stddef.h>
+
 typedef struct s_list
 {
 	void			*content;
@@ -13,5 +15,8 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list *ft_lstlast(t_list *lst);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	del(void *data);
+char	*ft_strdup(const char *source);
+size_t	ft_strlen(const char *string);
 
 #endif //FT_LSTADD_BACK_H
