@@ -1,5 +1,5 @@
-#ifndef FT_LSTADD_BACK_H
-#define FT_LSTADD_BACK_H
+#ifndef FT_LSTDELONE_H
+#define FT_LSTDELONE_H
 
 #include <stddef.h>
 
@@ -19,4 +19,4 @@ void	del(void *data);
 char	*ft_strdup(const char *source);
 size_t	ft_strlen(const char *string);
 
-#endif //FT_LSTADD_BACK_H
+#endif //FT_LSTDELONE_H
