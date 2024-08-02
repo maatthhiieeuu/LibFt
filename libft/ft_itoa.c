@@ -6,7 +6,7 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/06/20  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/07/27  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
@@ -52,6 +52,8 @@ size_t	count_char_number(int n_cpy, int *sign)
 		*sign = -1;
 		len_number++;
 	}
+	if(n_cpy == 0)
+		len_number = 1;
 	while(n_cpy != 0)
 	{
 		len_number++;
@@ -78,21 +80,25 @@ char	*initialization_exit(int n_cpy, char *result, size_t len_number, int sign)
 	if(!result)
 		return(NULL);
 
-	int	temp	= 0;
+	int		temp		= 0;
+	size_t	i			= 0;
+	size_t	last_digit	= len_number;
 
 	if(sign < 0)
 	{
 		*result = '-';
 		n_cpy *= -1;
+		last_digit -= 1;
 	}
 	result[len_number] = '\0';
 	len_number--;
-	while(len_number > 0)
+	while(i < last_digit)
 	{
 		temp = n_cpy % 10;
 		n_cpy /= 10;
 		result[len_number] = temp + 48;
 		len_number--;
+		i++;
 	}
 
 	return(result);
