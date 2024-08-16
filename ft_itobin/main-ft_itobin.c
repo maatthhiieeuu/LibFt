@@ -7,7 +7,7 @@ int main()
 {
 	int	i	= 0;
 	int	decimaln	= -2;
-	int	decimal	= INT_MAX;
+	int	decimal	= 0;
 	char	*binary = (char *)malloc(33 * sizeof(char));
 	if(!binary)
 	{
@@ -18,7 +18,7 @@ int main()
 	{
 		binary = ft_itobin(decimal);
 		printf("%s		%d\n", binary, decimal);
-		decimal--;
+		decimal++;
 		i++;
 		if(i == 72)
 		{

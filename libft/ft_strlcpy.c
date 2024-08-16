@@ -6,37 +6,37 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/05/25  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/06/26  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/08/13  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
 #include "libft.h"
 //#include <stddef.h>
 
-size_t  ft_strlcpy(char *destination, const char *source, size_t size)
+size_t	ft_strlcpy(char *destination, const char *source, size_t size)
 {
-    size_t  i = 0;
-    size_t  source_len = 0;
+	size_t  i = 0;
+	size_t  source_len = 0;
 
-    if(!source)
-        return(0);
+	if(!source)
+		return(0);
 
-    while(source[source_len] != '\0')
-    {
-        source_len += 1;
-    }
-    if(!destination || size == 0)
-        return(source_len);
+	while(source[source_len] != '\0')
+	{
+		source_len += 1;
+	}
+	if(!destination || size == 0)
+		return(source_len);
 
-    while(i < size - 1)
-    {
-        destination[i] = source[i];
-        i += 1;
-    }
+	while(i < size - 1)
+	{
+		destination[i] = source[i];
+		i += 1;
+	}
 
-    destination[size] = '\0';
-    
-    return(source_len);
+	destination[size] = '\0';
+
+	return(source_len);
 }
 
 /*
