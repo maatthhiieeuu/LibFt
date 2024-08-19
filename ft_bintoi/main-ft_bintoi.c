@@ -1,31 +1,65 @@
 /* ********************************************************************************************* */
 /*                                                                                               */
-/*   Project : libft/ft_itobin.c                        ::::::  ::::::    :::::::::              */
+/*   Project : ft_libft/main-ft_bintoi.c                ::::::  ::::::    :::::::::              */
 /*                                                     +:: ::+ +:: ::+   +:::::::::+             */
 /*   By: Matthieu Boegler                             +#:  +#::#+ :#+   +:#      #:+             */
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
-/*   Created: 2024/08/01  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/08/17  by m.boegler            ###         ###   #########                    */
+/*   Created: 2024/08/19  by m.boegler             ###         ###   ###########                 */
+/*   Updated: 2024/08/19  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include "libft.h"
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <limits.h>
+//#include "libft.h"
+#include "ft_bintoi.h"
 
-char	*limits_managed(char *octet, int n);
-void	two_complement(char *octet);
-void	one_complement(char *octet);
+int	main()
+{
+	printf("INT_MAX = %d\n", UINT_MAX);
+	int		i 			= -1;
+	ssize_t		i_result	= 0;
+	char	*bin_result	= (char *)malloc(33 * sizeof(char));//4294967295
+	if(!bin_result)
+	{
+		perror(RED"\nError bin_result allocation\n"BC);
+		return(-1);
+	}
+	char	*hex_result	= (char *)malloc(9 * sizeof(char));
+	if(!hex_result)
+	{
+		perror(RED"\nError hex_result allocation\n"BC);
+		return(-1);
+	}
 
+	printf("\n\n\n"PURPLE"Valeur de "ORANGE"i"PURPLE" = "GREEN"%d"PURPLE"\n\nConversion de i vers bin\n"BC, i);
+
+	bin_result	= ft_itobin(i);
+
+
+	printf("\n\n\n"PURPLE"Valeur de "ORANGE"bin"PURPLE" = "GREEN"%s"PURPLE"\n\nConversion de bin vers hex\n"BC, bin_result);
+
+	hex_result		= ft_bintohex(bin_result);
+
+
+	printf("\n\n\n"PURPLE"Valeur de "ORANGE"hex"PURPLE" = "RED"%s"PURPLE"\n\nConversion de hex vers i\n"BC, hex_result);
+
+	i_result	= ft_hextoi(hex_result); 
+
+
+	printf("\n\n\n"PURPLE"Valeur de "ORANGE"i_result"PURPLE"                   = "RED"%ld"PURPLE"\n\nComparaison avec la valeur initial i = "ORANGE"%d"BC"\n\n\n", i_result, i);
+	
+	
+
+	free(bin_result);
+	free(hex_result);
+
+
+}
 char	*ft_itobin(int n)
 {
 	int		sign		= 0;
 	int		quotient	= 0;
 	int		dividend	= n;
-	int		rest		= 0;
 	int		i			= 31;
 	char	c			= 'X';
 	char	*octet		= (char *)malloc(33 * sizeof(char));
@@ -115,4 +149,21 @@ char	*limits_managed(char *octet, int n)
 		ft_memcpy(octet, "01111111111111111111111111111111", 33);
 
 	return(octet);
+}
+void	*ft_memcpy(void *destination, const void *source, size_t size)
+{
+	if(!destination || !source || size == 0)
+		return(NULL);
+
+	char	*dest	= (char *)destination;
+	char	*src	= (char *)source;
+	size_t	i		= 0;
+
+	while(i < size)
+	{
+		dest[i] = src[i];
+		i += 1;
+	}
+
+	return (destination);
 }

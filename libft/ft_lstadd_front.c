@@ -6,11 +6,11 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/07/04  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/07/05  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/08/17  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include "ft_lstadd_front.h"
+#include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

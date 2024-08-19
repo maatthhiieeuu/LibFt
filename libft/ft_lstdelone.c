@@ -6,11 +6,11 @@
 /*      <https://github.com/maatthhiieeuu>           ###   ##:## ###   #::::::::#                */
 /*                                                  ###    ###  ###   ###      ###               */
 /*   Created: 2024/07/03  by m.boegler             ###         ###   ###########                 */
-/*   Updated: 2024/07/03  by m.boegler            ###         ###   #########                    */
+/*   Updated: 2024/08/17  by m.boegler            ###         ###   #########                    */
 /*                                                                                               */
 /* ********************************************************************************************* */
 
-#include "ft_lstdelone.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 

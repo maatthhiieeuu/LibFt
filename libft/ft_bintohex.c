@@ -61,6 +61,7 @@ char	*ft_bintohex(char *bin)
 	result					= (char *)malloc(9 * sizeof(char));
 	char			*sub	= NULL;
 	int				start	= 28;
+	int				j		= 32;
 	size_t			len		= 4;
 	unsigned int	i		= 7;
 
@@ -69,7 +70,7 @@ char	*ft_bintohex(char *bin)
 
 	ft_memset(result, '0', 8);
 
-	while(start != 0)
+	while(j != 0)
 	{
 		sub		= (char *)malloc(5 * sizeof(char));
 		if(!sub)
@@ -116,11 +117,11 @@ char	*ft_bintohex(char *bin)
 
 		i--;			
 		start	-=	4;
+		j		-=	4;
 		ft_memset(sub, '\0', 5);
 		free(sub);
 	}
 
 	result[8] = '\0';
-	
 	return(result);
 }
