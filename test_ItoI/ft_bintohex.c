@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "ft_ItoI.h"
 
 char	*ft_bintohex(char *bin)
 {
@@ -57,6 +57,7 @@ char	*ft_bintohex(char *bin)
 		return(NULL);
 
 	ft_memset(result, '0', 8);
+	//printf(PURPLE"\nValeur de "ORANGE"result"PURPLE" = "GREEN"%s\n", result);
 
 	while(j != 0)
 	{
@@ -106,12 +107,12 @@ char	*ft_bintohex(char *bin)
 		i--;			
 		start	-=	4;
 		j		-=	4;
-
 		ft_memset(sub, '\0', 5);
 		free(sub);
 	}
 
 	result[8] = '\0';
+	//printf(PURPLE"\nValeur de "ORANGE"result"PURPLE" = "GREEN"%s\n", result);
 	
 	return(result);
 }

@@ -15,16 +15,23 @@ typedef struct s_list
 }					t_list;
 
 int		ft_atoi(const char *string);
+void	ft_bin_revers(char	*octet);
+char	*ft_bintohex(char *bin);
+int		ft_bintoi(char *bin, char sign);
 void	ft_bzero(void *pointer, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+char	*ft_hex_neg_to_hex_pos(char *hex, char sign);
+ssize_t	ft_hextoi(char	*hex, char sign);
 int		ft_isalnum(int character);
 int		ft_isalpha(int character);
 int		ft_isascii(int character);
 int		ft_isdigit(int character);
 int		ft_isprint(int character);
 char	*ft_itoa(int n);
+char	*ft_itobin(int n, char sign);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);

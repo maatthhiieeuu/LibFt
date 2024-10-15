@@ -13,7 +13,7 @@
 //#include "libft.h"
 #include "ft_bintoi.h"
 
-int	ft_bintoi(char *bin)
+int	ft_bintoi(char *bin, char *sign)
 {
 	if(!bin)
 		return(-1);
@@ -25,16 +25,16 @@ int	ft_bintoi(char *bin)
 
 	ft_memset(temp, '\0', 8);
 
-	temp	= ft_bintohex(bin);
+	temp	= ft_bintohex(bin, sign);
 	printf(GREEN"\n|%s|\n"BC, temp);
-	result	= ft_hextoi(temp);
+	result	= ft_hextoi(temp, sign);
 
 	free(temp);
 
 	return(result);
 }
 
-ssize_t	ft_hextoi(char	*hex)
+ssize_t	ft_hextoi(char	*hex, char *sign)
 {
 
 	/*
@@ -51,6 +51,10 @@ complement à deux inverser pour les negatif .
 	ssize_t			factor_result	= 0;
 	int				i				= 0;
 
+	if(sign == '-')
+	{
+
+	}
 	while(hex[i] != '\0')
 	{
 		printf(BLUE"\nresult = %ld i = %d\n"BC, result, i);
@@ -123,6 +127,32 @@ complement à deux inverser pour les negatif .
 	
 	printf("return(%ld)\n", result);
 	return(result);
+}
+
+void	complement_reverse(char* hex)
+{
+	if(!hex)
+	{
+		perror("\n\nErreur complement_reverse\n\n");
+		return;
+	}
+
+	int i = 31;
+	int flag = 1;
+
+	while(i >= 0)
+	{
+		if(hex[i] == '1' && flag == 1)
+		{
+			hex[i] = '0';
+		}
+		else if(hex[i] == '0' && flag == 1)
+		{
+			hex[i] = '1';
+			flag = 0;
+		}
+		i--;
+	}
 }
 
 size_t	factorization(size_t factor)

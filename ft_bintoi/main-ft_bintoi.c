@@ -15,10 +15,15 @@
 
 int	main()
 {
-	printf("INT_MAX = %d\n", UINT_MAX);
-	int		i 			= -1;
+	printf(ORANGE"\n\n\n---------------------- INITIALISATION ----------------------"BC);
+
+	//printf("\n"PURPLE"Valeur de "ORANGE"UINT_MAX"PURPLE" = "GREEN"%u", UINT_MAX);
+	int			i_test 		= -1;
+	char*		bin_real	= "11111111111111111111111111111111";
+	char*		hex_real	= "ffffffff";
 	ssize_t		i_result	= 0;
-	char	*bin_result	= (char *)malloc(33 * sizeof(char));//4294967295
+	char		sign		= '+';
+	char		*bin_result	= (char *)malloc(33 * sizeof(char));//4294967295
 	if(!bin_result)
 	{
 		perror(RED"\nError bin_result allocation\n"BC);
@@ -30,24 +35,36 @@ int	main()
 		perror(RED"\nError hex_result allocation\n"BC);
 		return(-1);
 	}
+	if(i_test < 0)
+		{
+			sign = '-';
+		}
 
-	printf("\n\n\n"PURPLE"Valeur de "ORANGE"i"PURPLE" = "GREEN"%d"PURPLE"\n\nConversion de i vers bin\n"BC, i);
-
-	bin_result	= ft_itobin(i);
-
-
-	printf("\n\n\n"PURPLE"Valeur de "ORANGE"bin"PURPLE" = "GREEN"%s"PURPLE"\n\nConversion de bin vers hex\n"BC, bin_result);
-
-	hex_result		= ft_bintohex(bin_result);
+	printf("\n\n"PURPLE"Valeur de "ORANGE"i_test"PURPLE" = "GREEN"%d\n"ORANGE, i_test);
 
 
-	printf("\n\n\n"PURPLE"Valeur de "ORANGE"hex"PURPLE" = "RED"%s"PURPLE"\n\nConversion de hex vers i\n"BC, hex_result);
+	printf("\n\n---------------------- "PURPLE"CONVERSION DE "ORANGE"i"PURPLE" VERS "ORANGE"bin ----------------------\n\n"BC);
 
-	i_result	= ft_hextoi(hex_result); 
+	bin_result	= ft_itobin(i_test, sign);
+
+	printf(""PURPLE"Valeur de "ORANGE"bin_result"PURPLE" = "GREEN"%s"PURPLE"\n", bin_result);
+	printf(""PURPLE"Valeur de "ORANGE"bin_real"PURPLE"   = "GREEN"%s"PURPLE"\n\n", bin_real);
 
 
-	printf("\n\n\n"PURPLE"Valeur de "ORANGE"i_result"PURPLE"                   = "RED"%ld"PURPLE"\n\nComparaison avec la valeur initial i = "ORANGE"%d"BC"\n\n\n", i_result, i);
-	
+	printf(ORANGE"\n---------------------- "PURPLE"CONVERSION DE "ORANGE"bin"PURPLE" VERS "ORANGE"hex ----------------------\n\n"BC);	
+
+	hex_result		= ft_bintohex(bin_result, sign);
+
+	printf(""PURPLE"Valeur de "ORANGE"hex_result"PURPLE" = "GREEN"%s"PURPLE"\n", hex_result);
+	printf(""PURPLE"Valeur de "ORANGE"hex_real"PURPLE"   = "GREEN"%s"PURPLE"\n\n", hex_real);
+
+
+	printf(ORANGE"\n---------------------- "PURPLE"CONVERSION DE "ORANGE"hex"PURPLE" VERS "ORANGE"i ----------------------\n\n"BC);
+
+	i_result	= ft_hextoi(hex_result, sign); 
+
+	printf(""PURPLE"Valeur de "ORANGE"i_result"PURPLE" = "GREEN"%ld"PURPLE"\n", i_result);
+	printf(""PURPLE"Valeur de "ORANGE"i_test"PURPLE"   = "GREEN"%d"PURPLE"\n\n", i_test);	
 	
 
 	free(bin_result);
